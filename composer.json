@@ -1,0 +1,59 @@
+{
+    "name": "yiisoft/yii2-app-advanced",
+    "description": "Yii 2 Advanced Project Template",
+    "keywords": ["yii2", "framework", "advanced", "project template"],
+    "homepage": "http://www.yiiframework.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0",
+        "yiisoft/yii2": "2.0.43",
+        "webonyx/graphql-php": "*",
+        "notamedia/yii2-sentry": "^1.7",
+        "yiisoft/yii2-bootstrap4": "2.0.10",
+        "yiisoft/yii2-redis": "2.0.x-dev",
+        "moneyphp/money": "3.x-dev",
+        "kartik-v/yii2-widget-select2": "2.2.x-dev",
+        "phpoffice/phpspreadsheet": "^1.",
+        "firebase/php-jwt": "dev-main",
+        "yiisoft/yii2-jui": "2.0.x-dev",
+        "kartik-v/yii2-widget-fileinput": "1.1.x-dev",
+        "unclead/yii2-multiple-input": "dev-master",
+        "chillerlan/php-qrcode": "dev-main",
+        "ramsey/uuid": "4.x-dev",
+        "ruskid/yii2-ip-behavior": "dev-master",
+        "hail812/yii2-adminlte3": "*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "2.1.19",
+        "yiisoft/yii2-gii": "2.2.4",
+        "symfony/browser-kit": ">=2.7 <=4.2.4",
+        "squizlabs/php_codesniffer": "4.0.x-dev",
+        "vimeo/psalm": "^5.0@alpha",
+        "phpro/grumphp-shim": "*"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "phpro/grumphp-shim": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}

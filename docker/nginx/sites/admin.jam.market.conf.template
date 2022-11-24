@@ -1,0 +1,53 @@
+server {
+    charset utf-8;
+    client_max_body_size 128M;
+
+    listen 81;
+
+    set $host_path "/var/www/jam-backend/admin";
+
+    server_name  ${NGINX_ADMIN_URL};
+    root        $host_path/web;
+
+    set $yii_bootstrap "index.php";
+
+    access_log  /var/log/nginx/jam-backend-admin-access.log;
+    error_log   /var/log/nginx/jam-backend-admin-error.log;
+
+    location / {
+        index index.html $yii_bootstrap;
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~ ^/(protected|framework|themes/\w+/views) {
+        deny  all;
+    }
+
+    location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar)$ {
+        try_files $uri =404;
+    }
+
+    location ~ \.php$ {
+
+        set $fsn /index.php;
+           if (-f $document_root$fastcgi_script_name){
+               set $fsn $fastcgi_script_name;
+        }
+
+        fastcgi_pass php-jam:9000;
+
+        include fastcgi_params;
+
+        fastcgi_param SCRIPT_FILENAME $document_root$fsn;
+    }
+
+    location ~ /\.(ht|svn|git) {
+        deny all;
+    }
+
+    location ~* /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+}

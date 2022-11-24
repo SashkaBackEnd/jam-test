@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="5"
+    autoloader="psalm-autoload.php"
+    skipChecksOnUnresolvableIncludes="true"
+    reportMixedIssues="false"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <directory name="backend" />
+        <directory name="common" />
+        <directory name="console" />
+        <directory name="environments" />
+        <directory name="api" />
+        <ignoreFiles>
+<!--            <directory name="backend/assets" />-->
+<!--            <directory name="backend/controllers" />-->
+<!--            <directory name="backend/helpers" />-->
+<!--            <directory name="backend/messages" />-->
+<!--            <directory name="backend/models" />-->
+<!--            <directory name="backend/modules/manager/forms" />-->
+<!--            <directory name="backend/modules/manager/helpers" />-->
+<!--            <directory name="backend/modules/manager/models" />-->
+<!--            <directory name="backend/modules/manager/services" />-->
+<!--            <directory name="backend/modules/manager/views" />-->
+<!--            <directory name="backend/runtime" />-->
+            <directory name="backend/views" />
+<!--            <directory name="backend/web" />-->
+
+
+            <directory name="api/config" />
+            <directory name="api/runtime" />
+            <directory name="api/tests" />
+            <directory name="api/web" />
+
+<!--            <directory name="backend/config" />-->
+            <directory name="backend/runtime" />
+            <directory name="backend/tests" />
+
+
+
+            <directory name="backend/web" />
+
+            <directory name="common/config" />
+            <directory name="common/tests" />
+<!--            <directory name="common/models/base" />-->
+            <directory name="common/uploads" />
+
+            <directory name="console/migrations" />
+            <directory name="console/runtime" />
+            <directory name="console/uploads" />
+
+            <directory name="environments" />
+            <directory name="vendor" />
+
+            <!--@todo временно-->
+            <directory name="backend/modules/manager/views" />
+
+
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <UndefinedMagicPropertyFetch>
+            <errorLevel type="suppress">
+                <referencedProperty name="yii\console\Response::$cookies"/>
+                <referencedProperty name="yii\console\Application::$homeUrl"/>
+                <referencedProperty name="yii\console\Application::$user"/>
+                <referencedProperty name="yii\console\Application::$cookies"/>
+                <referencedProperty name="yii\console\Application::$session"/>
+                <referencedProperty name="yii\console\Request::$isAjax"/>
+                <referencedProperty name="yii\console\Request::$referrer"/>
+                <referencedProperty name="yii\console\Request::$queryParams"/>
+                <referencedProperty name="yii\console\Request::$cookies"/>
+                <referencedProperty name="yii\console\Request::$userAgent"/>
+                <referencedProperty name="yii\console\Request::$isPost"/>
+                <referencedProperty name="yii\console\Request::$isDelete"/>
+                <referencedProperty name="yii\console\Request::$userIP"/>
+
+                <referencedProperty name="yii\base\Application::$session"/>
+                <referencedProperty name="yii\base\Application::$homeUrl"/>
+                <referencedProperty name="yii\base\Application::$user"/>
+                <referencedProperty name="yii\base\Application::$cookies"/>
+            </errorLevel>
+        </UndefinedMagicPropertyFetch>
+        <UndefinedTrait>
+            <errorLevel type="suppress">
+                <directory name="api/traits"/>
+            </errorLevel>
+        </UndefinedTrait>
+    </issueHandlers>
+</psalm>

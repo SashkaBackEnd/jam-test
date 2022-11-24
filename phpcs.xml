@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+    <description>PHPCS configuration file.</description>
+
+    <exclude-pattern>/api/tests/_support/*</exclude-pattern>
+
+    <exclude-pattern>/requirements.php</exclude-pattern>
+    <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/console/migrations/*</exclude-pattern>
+
+    <exclude-pattern>/common/config/__autocomplete.php</exclude-pattern>
+    <exclude-pattern>/common/tests/_support/_generated/*</exclude-pattern>
+
+    <exclude-pattern>/frontend/runtime/*</exclude-pattern>
+    <exclude-pattern>/frontend/tests/_support/_generated/*</exclude-pattern>
+
+    <exclude-pattern>/backend/runtime/*</exclude-pattern>
+    <exclude-pattern>/backend/tests/_support/_generated/*</exclude-pattern>
+
+    <exclude-pattern>/cabinet/runtime/*</exclude-pattern>
+    <exclude-pattern>/cabinet/tests/_support/_generated/*</exclude-pattern>
+
+    <!--
+        APPROVED:
+            A file should declare new symbols (classes, functions, constants, etc.) and cause no other side effects,
+            or it should execute logic with side effects, but should not do both. The first symbol is defined on line 7
+            and the first side effect is on line 12. (PSR1.Files.SideEffects.FoundWithSymbols)
+     -->
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>/api/web/index.php</exclude-pattern>
+        <exclude-pattern>/api/web/index-test.php</exclude-pattern>
+        <exclude-pattern>/backend/web/index.php</exclude-pattern>
+        <exclude-pattern>/backend/web/index-test.php</exclude-pattern>
+        <exclude-pattern>/frontend/web/index.php</exclude-pattern>
+        <exclude-pattern>/frontend/web/index-test.php</exclude-pattern>
+        <exclude-pattern>/cabinet/web/index.php</exclude-pattern>
+        <exclude-pattern>/cabinet/web/index-test.php</exclude-pattern>
+    </rule>
+
+    <!-- Корректно обрабатываем _fixture(), _before() -->
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <exclude-pattern>/api/tests/*</exclude-pattern>
+        <exclude-pattern>/common/tests/*</exclude-pattern>
+        <exclude-pattern>/frontend/tests/*</exclude-pattern>
+        <exclude-pattern>/backend/tests/*</exclude-pattern>
+        <exclude-pattern>/cabinet/tests/*</exclude-pattern>
+    </rule>
+
+    <!-- Стартовый файл без классов, констант, функций-->
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>/api/tests/_bootstrap.php</exclude-pattern>
+        <exclude-pattern>/common/tests/_bootstrap.php</exclude-pattern>
+        <exclude-pattern>/frontend/tests/_bootstrap.php</exclude-pattern>
+        <exclude-pattern>/backend/tests/_bootstrap.php</exclude-pattern>
+        <exclude-pattern>/cabinet/tests/_bootstrap.php</exclude-pattern>
+    </rule>
+
+    <!-- Длинные строки -->
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <exclude-pattern>/api/messages/*.php</exclude-pattern>
+        <exclude-pattern>/api/tests/_data/*.php</exclude-pattern>
+        <exclude-pattern>/frontend/messages/*.php</exclude-pattern>
+        <exclude-pattern>/backend/messages/*.php</exclude-pattern>
+        <exclude-pattern>/common/models/base/*.php</exclude-pattern>
+        <exclude-pattern>/cabinet/models/base/*.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Generic.Files.LineEndings.InvalidEOLChar">
+        <exclude-pattern>/*</exclude-pattern>
+    </rule>
+
+    <ini name="memory_limit" value="512M"/>
+
+    <arg name="extensions" value="php"/>
+    <arg name="encoding" value="utf-8"/>
+    <arg name="parallel" value="4"/>
+    <arg name="colors"/>
+
+    <!-- Show progress of the run -->
+    <arg value="p"/>
+    <!-- Show sniff codes in all reports -->
+    <arg value="s"/>
+
+    <!-- Our base rule: set to PSR12-->
+    <rule ref="PSR12"/>
+</ruleset>

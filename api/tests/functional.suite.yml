@@ -1,0 +1,8 @@
+#suite_namespace: api\tests\functional
+#actor: FunctionalTester
+#modules:
+#  enabled:
+#    - REST:
+#        url: /api/dt1c
+#        depends: PhpBrowser
+#        part: Json

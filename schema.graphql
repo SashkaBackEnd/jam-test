@@ -1,0 +1,68 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+}
+
+"Список городов"
+type Cities {
+    list: [City]
+}
+
+"Информация о городе"
+type City {
+    id: Int
+    name: String
+}
+
+"Контент"
+type Content {
+    "Список городов"
+    cities(filter: FilterCities): Cities
+    "Список стран"
+    countries: Countries
+    "Список регионов"
+    regions(filter: FilterRegions): Regions
+}
+
+"Список стран"
+type Countries {
+    list: [Country]
+}
+
+"Информация о стране"
+type Country {
+    "Список городов"
+    cities(filter: FilterCities): Cities
+    id: Int
+    name: String
+    "Список регионов"
+    regions(filter: FilterRegions): Regions
+}
+
+"Корневой элемент GraphQL-запросов."
+type Query {
+    "Контент"
+    content: Content
+}
+
+"Информация о регионе"
+type Region {
+    "Список городов"
+    cities(filter: FilterCities): Cities
+    id: Int
+    name: String
+}
+
+"Список регионов"
+type Regions {
+    nodes: [Region]
+}
+
+input FilterCities {
+    region_id: Int
+}
+
+input FilterRegions {
+    country_id: Int
+}

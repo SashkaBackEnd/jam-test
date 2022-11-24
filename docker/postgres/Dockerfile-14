@@ -1,0 +1,7 @@
+# Фиксируем версию образа, чтобы избежать внезапных обновлений
+# Обновления базы должны выполняться осознанно
+FROM postgres:14.0-bullseye
+# Родительский докерфайл
+# https://github.com/docker-library/postgres/blob/master/14/bullseye/Dockerfile
+# Родительский энтрипоинт
+# https://github.com/docker-library/postgres/blob/master/14/bullseye/docker-entrypoint.sh

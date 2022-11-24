@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpcs version="4.0.0">
+<file name="/var/www/jam-backend/api/forms/ChangePasswordForm.php" errors="1" warnings="0" fixable="1">
+    <error line="75" column="1" source="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody" severity="5" fixable="1">The closing brace for the class must go on the next line after the body</error>
+</file>
+<file name="/var/www/jam-backend/backend/modules/manager/controllers/CategoryController.php" errors="1" warnings="0" fixable="1">
+    <error line="111" column="13" source="PSR12.ControlStructures.ControlStructureSpacing.FirstExpressionLine" severity="5" fixable="1">The first expression of a multi-line control structure must be on the line after the opening parenthesis</error>
+</file>
+<file name="/var/www/jam-backend/backend/modules/manager/helpers/CategoryHelpers.php" errors="1" warnings="0" fixable="1">
+    <error line="3" column="24" source="PSR12.Files.FileHeader.SpacingAfterBlock" severity="5" fixable="1">Header blocks must be separated by a single blank line</error>
+</file>
+<file name="/var/www/jam-backend/backend/views/layouts/_menu-top.php" errors="2" warnings="0" fixable="1">
+    <error line="5" column="1" source="PSR12.Files.FileHeader.IncorrectOrder" severity="5" fixable="0">The file-level docblock must follow the opening PHP tag in the file header</error>
+    <error line="7" column="2" source="PSR12.Files.FileHeader.SpacingAfterBlock" severity="5" fixable="1">Header blocks must be separated by a single blank line</error>
+</file>
+</phpcs>
+

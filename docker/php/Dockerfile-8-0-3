@@ -1,0 +1,23 @@
+FROM php:8.0.3-fpm
+
+RUN apt update \
+    && apt -y dist-upgrade  \
+    && apt -y install libzip-dev git unzip bzip2 libbz2-dev libpq-dev libpng-dev\
+    && curl https://getcomposer.org/download/2.0.7/composer.phar -o /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer \
+    && composer self-update --2 \
+    && pecl install redis-5.3.2 \
+    && docker-php-ext-enable redis \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql\
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install zip \
+    && docker-php-ext-install bz2 \
+    && docker-php-ext-install sockets \
+    && docker-php-ext-install gd
+
+ADD ./docker/php/php-8-0-3.ini /usr/local/etc/php/php.ini
+COPY ./docker/php/conf.d/* /usr/local/etc/php/conf.d/
+
+#RUN php init --env=Development --overwrite=All
+
